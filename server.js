@@ -15,7 +15,7 @@ users = JSON.parse(users_json).users;
 app.get('/api/items', (req, res, next) => {
 
     const page = parseInt(req.query.page) || 1;
-    const pager = paginate(users.length, page);
+    const pager = paginate(users.length, page,20);
     const pageOfItems = users.slice(pager.startIndex, pager.endIndex + 1);
 
     return res.json({ pager, pageOfItems });
